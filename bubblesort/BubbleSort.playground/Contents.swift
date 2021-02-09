@@ -22,5 +22,25 @@ public func bubbleSort<Element>(_ array: inout [Element]) where Element: Compara
     }
 }
 
+func bubblesort3<Element>(_ myArray: inout [Element]) where Element:Comparable{
+    guard myArray.count > 2 else{
+        return
+    }
+    
+    for end in (1..<myArray.count).reversed(){
+        var swipe = false
+        
+        for x in 0..<end{
+            if myArray[x] > myArray[x+1]{
+                myArray.swapAt(x, x+1)
+                swipe = true
+            }
+        }
+        if !swipe { return }
+    }
+}
+
+
 var a = [9,4,10,3]
-bubbleSort(&a)
+bubblesort3(&a)
+
