@@ -41,6 +41,50 @@ func bubblesort3<Element>(_ myArray: inout [Element]) where Element:Comparable{
 }
 
 
-var a = [9,4,10,3]
-bubblesort3(&a)
+func selectsort<Element>(_ myArray: inout [Element]) where Element:Comparable{
+    guard myArray.count >= 2 else {
+        return
+    }
+    
+    for current in (0..<myArray.count-1){
+        var lowest = current
+        for other in current+1..<myArray.count{
+            if (myArray[lowest] > myArray[other]){
+                lowest = other
+            }
+        }
+        if (lowest != current){
+            myArray.swapAt(current, lowest)
+        }
+    }
+}
+
+
+func selectSort3<Element> (_ myArray: inout [Element]) where Element:Comparable{
+    
+    guard myArray.count >= 2 else{
+        return
+    }
+    
+    for current in 0..<myArray.count-1{
+        var lowest = current
+        
+        for other in current+1..<myArray.count{
+            if (myArray[lowest]>myArray[other]){
+                lowest = other
+            }
+        }
+        
+        if lowest != current {
+            myArray.swapAt(current, lowest)
+        }
+        print(myArray)
+    }
+    
+    
+    
+}
+
+var a = [10,4,5,8,1]
+selectSort3(&a)
 
